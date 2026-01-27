@@ -43,6 +43,29 @@ Toy DS project to learn end to end flow
     - ReadMe.md, LICENSE, gitignore  
 
 - executable shouldn't have much code in it. just an import and a call to a main function in "runner" script
+- Never edit your raw data, raw data is immmutable
+- The project and analysis is a one way path without any loops so anyone can re-produce it
+- DO move the raw data through a pipeline to your final analysys creating intermediate outputs
+- Data should not be kept in source control
+  - the data is immmutable so it doesn't change at all (or much) 
+  - the "data/" folder should be inlcuded in the .gitignore file
+  - you have scripts that can rebuild the data if anyone wants to re-run the analysis
+- Notebooks are for exploration and communication not finished modeling/reproducing analysis
+  -  subdivide "notebooks/" folder inot "exploration/" and "reports/" sub folders
+  -  notebooks are challenging for source control
+-  Refactor re-used code into source code
+  - don't re-write code to do the same task in multiple notebooks
+  - pull it out into a module or into the source code
+  - if it's for data preprocessing pt it in /data/make_datset.py
+-  Don't forget to include the environment details: packages etc (that's where it all starts)
+  - Conda has tools for exporting env details
+  - virtual machine approach like Docker for more complex envs
+- Don't leak your passwords
+  - store your secrets in a file that is included in your .gitignore
+  - this file should never get committed to the repository
+  - use python-dotenv to load the access  keys as env variables 
+
+
 # Step 2: Data Base Set Up
 - raw csv files -> Dockerized PostgreSQL
 
