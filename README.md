@@ -24,6 +24,8 @@ Toy DS project to learn end to end flow
 ## Notes: Project Structure
 - [RP Application Layouts](https://realpython.com/python-application-layouts/)
 - [Cookiecutter Data Sci Template](https://cookiecutter-data-science.drivendata.org/)
+- [Structuring Python Project](https://trevoramestoy.com/posts/2022/PythonProjects/)
+- [Hitchhiker's Guide To Python](https://docs.python-guide.org/)
 - The exact location of files matters less than the motivation for grouping similar files
 - For a Project called "My_Project" the structure could be:
   - My_Project
