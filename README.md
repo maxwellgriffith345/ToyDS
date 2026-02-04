@@ -74,11 +74,13 @@ Toy DS project to learn end to end flow
 
 ## Notes: DB setup
 [Postgres Basic Data Loading](https://www.crunchydata.com/blog/data-loading-in-postgres-for-newbies)
+[Using Postgres COPY](https://www.compilenrun.com/docs/database/postgresql/postgresql-data-import-export/postgresql-copy-command/)
 
 ## Notes: Docker
 [Basic Docker App](https://docs.docker.com/get-started/workshop/02_our_app/)
 [PostgreSQL and Docker](https://simplebackups.com/blog/run-postgresql-on-docker)
 [Another PostgreSQL Tut](https://dev.to/nhannguyenuri/setting-up-postgresql-in-docker-a-step-by-step-guide-3gc4)
+[Pre Seed Docker Postgres](https://docs.docker.com/guides/pre-seeding/)
 - Basic Parts
   - The Container
     -  isolated shell that holds dependencies to run application, similar to env
