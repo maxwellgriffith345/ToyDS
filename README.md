@@ -131,7 +131,8 @@ MVP: Pull data from web and store it in a dockerized PostgreSQL DB
 - two main types: Real-Time/On Demand, and Batch
   - Real-time/On Demand uses a server to take in new data and instantly produce a result
   - Batch takes in larger amounts of data at regular intervals ie for forecasting
--  Real-Time/On Demand
+
+-  **Real-Time/On Demand**
   - Use a server API packaged as a web app to take in new data and return the prediction
   1. Develop and train a model: scikit learn
   2. Save the trained model: Pickle
@@ -139,3 +140,11 @@ MVP: Pull data from web and store it in a dockerized PostgreSQL DB
   4. Create a container to hold and run the app in: Docker with custome image
       - Uvicorn to run the FastAPI app
   5. Build and run contrainer with your app image
+
+- **Batch**
+  1. Develop and train a model: scikit learn
+  2. Save the trained model: Pickle
+  3. ??????: Airflow or Prefect to do something
+
+## Mini Project: Iris fast API
+- Use the built in Iris data set in scikit learn to create a classifiction model and deploy locally using FastAPI
