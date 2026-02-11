@@ -123,3 +123,19 @@ MVP: Pull data from web and store it in a dockerized PostgreSQL DB
 - write at least one test
 - Python + SQL script to read data back into project
 - tidy github repo
+
+# Step ?: Model Deployment
+[Basic Explainer on Real-Time, Batch and Edge](https://towardsdatascience.com/3-ways-to-deploy-machine-learning-models-in-production-cdba15b00e/)
+[Basic Real Time Example](https://machinelearningmastery.com/a-practical-guide-to-deploying-machine-learning-models/)
+## Notes Deployment
+- two main types: Real-Time/On Demand, and Batch
+  - Real-time/On Demand uses a server to take in new data and instantly produce a result
+  - Batch takes in larger amounts of data at regular intervals ie for forecasting
+-  Real-Time/On Demand
+  - Use a server API packaged as a web app to take in new data and return the prediction
+  1. Develop and train a model: scikit learn
+  2. Save the trained model: Pickle
+  3. Creat app to handle prediction requests: FastAPI, pydantic (for input validation)
+  4. Create a container to hold and run the app in: Docker with custome image
+      - Uvicorn to run the FastAPI app
+  5. Build and run contrainer with your app image
