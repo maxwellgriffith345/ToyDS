@@ -146,5 +146,23 @@ MVP: Pull data from web and store it in a dockerized PostgreSQL DB
   2. Save the trained model: Pickle
   3. ??????: Airflow or Prefect to do something
 
+## Notes: Model Persistence/ Serialization
+- Serialize a Python object structure: converting an object into a byte stream that can be stores as a biney file on disk. The file can then be read back into a Python program re-creating the Python object
+- Save a specific instance of a python object to a file so it can be read back into any other python program as the same object
+- [Pickle](https://pythonnumericalmethods.studentorg.berkeley.edu/notebooks/chapter11.03-Pickle-Files.html)
+  - built in with Python
+  - can execute arbitrary code so make sure you trust the source!
+- Joblib
+  - mostly used for parallel computing and tasking
+  - also has features to searlize models
+  - better for objects that contain large numpy arrays
+  - use case for large machine learning models
+  - has a compression feature
+- Both Pickle and Joblib are version dependent
+  - make sure your prod env has the same python and scikit version as the dev env
+- Need to save the pre-preprocessing pipeline as well!!!
+  - create a pipline that includes the preprocessing and the model
+  - then dump the pipline out
+
 ## Mini Project: Iris fast API
 - Use the built in Iris data set in scikit learn to create a classifiction model and deploy locally using FastAPI
