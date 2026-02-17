@@ -115,3 +115,28 @@ user = User(**new_data)
   -  
 
 ### PreRec: Concurrency: async and await
+- asynchronous code, coroutines with async and await syntax
+- asynchronous code tells the computer/program that it will have to wait for something else to finish ie 'slow-file'
+- While the code waits for 'slow-file' it can do other work
+- the program will check in and see if the task it was waiting for has finished
+- Once it checks and sees 'slow-file' has finished it continues whith what it needed it for
+- typical 'slow' tasks to wait on are I/O operations
+  - waiting on data from a client
+  - waiting on data to send over network
+  - write/read something fro disk
+  - wait for database query to return results
+- The prgoram does not need to be "synchronized" with a slow task
+  - isn't not necessary for the program to do nothing while it waits for the exact moment the task finishes
+- "synchronous" can be thought of as "sequential"
+  - the program follows all the steps in sequence before moving to a different task, even if it has to wait for a task to finish
+- Asynchronous code is also called Concurrency
+- Asynchronous/Concurrency is different that Parallelism
+  - both relate to different things happening at the same time
+  - but the details are different
+- Concurrent Burgers
+  - You order a burger at a counter, the person at the register puts the order in the chefs que, but it takes time to make the burger and recie your order
+  - So you don't stand there waiting at the cash register you go and do other tasks; pick out a table, fill your drink etc
+  - You check to see if your order number is up while you go about your other tasks
+  - Your order number is called out, but you don't get it right away, you first finish getting your drink then go get your burger
+  - You burger is a coroutine that you are waiting on but you can still do other things unitl it's ready
+- Parallel Burgers   
