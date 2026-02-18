@@ -174,3 +174,19 @@ async def read_burgers():
   burgers = await get_burgers(2)
   return burgers
 ```
+### PreRec: Environment Variables
+- "env var": a variable that lives outside of the Python code
+- lives in the operating system and can be read by your program
+- helpful for handling application settings (as part of the installation of python)
+``` python
+# read ENV vars into python
+import os
+name = os.getenv("MY_NAME")
+```
+- env var are set outside the code and don't need to be stored (commited to git) with the rest of the files
+- this makes them good for configureations or settings and sesative variables like passwords
+- all env var are strings so they must convereted once read into a program
+- PATH is a special env var to tell the os where to find programs to run
+- for example when you try to run python the os will look in the path variable to for where to find "python" to run your code
+
+### PreRec: Virtual Environments
