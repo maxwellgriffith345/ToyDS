@@ -139,4 +139,38 @@ user = User(**new_data)
   - You check to see if your order number is up while you go about your other tasks
   - Your order number is called out, but you don't get it right away, you first finish getting your drink then go get your burger
   - You burger is a coroutine that you are waiting on but you can still do other things unitl it's ready
-- Parallel Burgers   
+- Parallel Burgers
+  - There are 8 cashiers who are also the cooks, you order at one register and your crush orders at another
+  - The two eomployees take the orders and then go and start cooking your burgers
+  - You and your crush wait on the counter until the cook finsish your burgers
+  - Your crushes burger is done frist and the employee returns hands it off and your crush goes and sits down
+  - You can't leave with her because you are still waiting on your food, then your order is up and you go and sit down and eat
+  - Another example: cleaning a big dirty house
+  - There isn't much waiting involved but alot of work, so it's better to have 8 cleaners all working at once than two cleaners taking turns
+  - The turns don't matter because there isn't much waiting
+- For Web applications it is better to have a concurrent system as there is lot's of waiting
+  - FastAPI offer concurrency and parallelism
+  - GO is a language that is great for asnychronicty
+- Web + Machine Learning
+  - FastAPI offers concurrency and parallelism/multiprocessings
+  - multiprocessing is important to CPU bound Machine Learing Systems
+  - This makes FastAPi great for data science
+- async and await
+  - define an operation that will require waiting before giving the results
+``` python
+# tells python it will need to wait for get_burgers before storing the results of burgers
+burgers = await get_burgers(2)
+
+# for await to work you must define async in the function
+async def get_burgers(number: int):
+  #do something that takes a long time asynchronously
+  return burgers
+```        
+  - when defining the path operatoin functions in FastAPI if app.get can be called with await you need to define your path function with async
+  - or when calling a async function from a library within your own function def you need to define it with async 
+``` python
+@app.get('/burgers') #this is the path operation function it's a path and does a function
+async def read_burgers():
+  burgers = await get_burgers(2)
+  return burgers
+```
