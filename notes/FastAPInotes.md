@@ -190,3 +190,45 @@ name = os.getenv("MY_NAME")
 - for example when you try to run python the os will look in the path variable to for where to find "python" to run your code
 
 ### PreRec: Virtual Environments
+
+### First Steps
+- Most basic FastAPI app
+```python
+from fastapi import FastAPI
+
+app = FastAPI()
+
+@app.get("/")
+async def root():
+  return {"message": "Hellow World"}
+```
+- Creates the FastAPI app instance
+- defines a path function "root" for a "get" request at end point/path "/"
+- returns a JSON formatted message
+- a "path"/"endpoint" is the last part of the URL starting from the first /
+  - https://example.com/items/foo
+  - the path is /items/foo
+- Use paths to separate "concerns" and "resources" ????
+- Operation is the HTTP method at the endpoint
+  - Post: to create data
+  - Get: to read data
+  - Put: to update data
+  - Delete: to delete data
+- Path Operation Decorator
+```python
+@app.get("/")
+```
+  - tells FastAPi the function defined below should be used for reuqests at the path "/" using a "get" operation
+  - a decorator is a function that takes a function as an input and does someting with the passed function
+``` python
+@app.get("/")
+def root():
+
+is basically
+app.get("/", root()): 
+```
+- Path Operation Function: root()
+  - it will be called whenever FastAPi receives a "get" request to the URL path "/"
+  - can return a dict, list or single values as str int etc
+  - They will be converted to JSON
+  - can also return Pydantic models 
