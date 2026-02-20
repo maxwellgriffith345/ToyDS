@@ -271,4 +271,31 @@ uvircorn main:app --host 0.0.0.0 -- port 80
   - equivalent to "form main import app"
   - this runs the server program Uvicorn start a single process listening on all the IPs (0.0.0.0) on a predefinied port (80)
 - FastAPI in Docker Containers
--   
+  - build a custome docker image to use to build a container
+  - containers run using the same linux kernel as the host
+  - a virtual machine would run it's own linux kernel consuming much more resources
+  - a contrainer is built/run from a contrainer image
+  - an image is a static version of all the files, env var, and efault commands programs that the contrainer will need to run the application
+  - the image does not run it is not being executed it is a package of files and metdata
+  - the "contrainer" is the running instance of an "image"
+  - you can run multiple contrainser for different sections of one large app and connect them via their internal network
+  - normally a constrain has a single process running on it
+  - if the main process stops the contrainer stops
+- Build A Docker Image for FastAPI
+  - Start with a list of the package requirements your app needs
+  - list them one per line in a file "requirements.txt"
+  - set the specific versions
+  - Next create the FastAPI app
+  - create an app directoy: inside create an empty __init__.py file and a main.py with the FastAPI app code
+  - Next create the docker file in the main project directory
+    - define the base image: python
+    - set working dir
+    - copy in the requirements  file, use it to run pip install for the packages
+    - copy in the app folder
+    - run a comand to launch Fast API server with the app and port
+    - use the CMD-EXEC form ie CMD ["fastapi", "run", "app/main.py", "--port", "80"]
+  - Docker images are built in layers so we don't copy in all the files at once, it would slow it down
+  - Build the image: "docker build -t myimage ."
+  - the " . " tells docker to use the image file in the current directory
+  - Build and run a contrainer using our image
+  - "docker run -d --name mycontrainer -p 80:80 myimage
