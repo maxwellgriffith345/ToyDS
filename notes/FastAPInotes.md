@@ -231,4 +231,44 @@ app.get("/", root()):
   - it will be called whenever FastAPi receives a "get" request to the URL path "/"
   - can return a dict, list or single values as str int etc
   - They will be converted to JSON
-  - can also return Pydantic models 
+  - can also return Pydantic models
+
+ ### Deployment
+ - Deploy: take the needed steps to make an app available to the users
+   - put the app in a remote machine with a server pogram
+   - so users can access the application without interruptions or problems
+   - could deploy your own server or use a cloud service that does part of the work
+ -  Pin the version of FastAPI
+   - use a requirements.txt file to specify the version that works for your project
+   - fastapi[standard]==0.112.0
+   - use the exact version 0.112.0
+ - Tests
+   - add tests to your app to check that the version installed will work
+   - this makes it easier to control for upgrades to newer versions
+   - [FastAPI Testing Docs](https://fastapi.tiangolo.com/tutorial/testing/)
+ - About HTTPS
+   - skipped this maybe go back and read?
+   -  [About HTTPS](https://fastapi.tiangolo.com/deployment/https/)
+   -  [How HTTPS Works](https://howhttps.works/)
+ -  Run A Server Manually
+   -  cmd: fastapi run
+   -  this would work for most cases; running the app in a container, in a server etc
+ -  ASGI Servers
+   - a standard for building python web frameworkers and servers
+   - to run a FastAPI app (or ang other ASGI app) is a ASGI server program
+   - Uvicorn is the deafult that comes with FastAPI "run" command
+ -  Server Machine and Server Program
+   - "server" is commonly used to mean the machine and also the program running on the machine (a virtual machine running Uvicorn)
+   - When referring to the remote machine: "server", "machine", "VM", "node"
+   - FastAPI comes with Uvicorn but to install it manuall use: pip install "uvicorn[standard]"
+ - Run the Server Program
+   - when you've installed an ASGI server manually
+```console
+uvircorn main:app --host 0.0.0.0 -- port 80
+```
+  - main: is the file main.py (the python "module" with your app inside)
+  - app: is the object created inside of the main.py with the line app=FastAPI()
+  - equivalent to "form main import app"
+  - this runs the server program Uvicorn start a single process listening on all the IPs (0.0.0.0) on a predefinied port (80)
+- FastAPI in Docker Containers
+-   
