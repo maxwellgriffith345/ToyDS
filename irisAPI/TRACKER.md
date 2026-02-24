@@ -1,11 +1,9 @@
 ## Last Update
--2/21
-- wrote the fastAPI app script in main.py
-- ran it in dev mode using FastAPi dev
-- tested it with a curl request to return a prediction
+- Finished
+- got app to work in the contrainer and tested with a prediction
 
 ## Next Steps
-- contrainerize the appl: requirements.txt, Dockerfile etc
+
 
 
 
